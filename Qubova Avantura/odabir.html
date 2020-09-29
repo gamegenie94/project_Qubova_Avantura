@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Qubova avantura</title>
+    <link rel="stylesheet" href="myIndex.css" type="text/css">
+</head>
+<body>
+<div class="wrapper">
+    <div id="menu" class="main">
+        <div id="main">
+
+        </div>
+    </div>
+</div>
+<script>
+    let params = new URLSearchParams(location.search);
+    const main = document.getElementById('main');
+    const razred = params.get('razred') ?? null;
+
+    if(razred)
+        main.innerHTML = `
+            <h1 align="center">ODABIR PREDMETA</h1>
+            <ul>
+                <li><a href="game.html?predmet=matematika&razred=${razred}" class="button">Matematika</a></li>
+                <li><a href="game.html?predmet=hrvatski&razred=${razred}" class="button">Hrvatski jezik</a></li>
+                <li><a href="game.html?predmet=priroda&razred=${razred}" class="button">Priroda i društvo</a></li>
+                <li><a href="odabir.html" class="button">Odabir razreda</a></li>
+            </ul>
+        `;
+    else
+        main.innerHTML = `
+            <h1 align="center">ODABIR RAZREDA</h1>
+            <ul>
+                <li><a href="odabir.html?razred=1" class="button">1. RAZRED</a></li>
+                <li><a href="odabir.html?razred=2" class="button">2. RAZRED</a></li>
+                <li><a href="odabir.html?razred=3" class="button">3. RAZRED</a></li>
+                <li><a href="odabir.html?razred=4" class="button">4. RAZRED</a></li>
+                <li><a href="index.html" class="button">Početna stranica</a></li>
+            </ul>
+        `;
+</script>
+</body>
+</html>
